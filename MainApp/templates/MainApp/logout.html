@@ -1,0 +1,23 @@
+{% extends "MainApp/base.html" %}
+{% block content %}
+        <div class="content-section" style="
+        background: #ffffff;
+        padding: 200px 30%;
+        border: 1px solid #dddddd;
+        border-radius: 3px;
+        margin-bottom: 20px;
+    ">
+            <h2>You have been Logged out!</h2>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    <a href="{% url 'login' %}">Login Again</a> 
+                </small>
+            </div>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    <a href="{% url 'MyAcad-home' %}">Go back to home page</a> 
+                </small>
+            </div>
+        </div>
+        
+{% endblock %}

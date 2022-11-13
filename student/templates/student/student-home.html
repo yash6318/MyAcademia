@@ -1,0 +1,64 @@
+{% extends "MainApp/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4 mt-1">
+        <div class="card text-center sidebar">
+            <div class="card-body">
+                <img src = "{% static 'MainApp/images/prof.png' %}" class="rounded-circle" width="150"> 
+                <div class="mt-3">
+                    <a href="">SUBJECTS</a>
+                    <a href="{% url 'stud_att' %}">ATTENDANCE</a>
+                    <a href="{% url 'stud_marks' %}">CHECK RESULTS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 mt-1">
+        <div class="card mb-3 content">
+            <h1 class="m-3 pt-3">Hello {{ Student_name }}!</h1>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3"><h5>Full Name</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Class</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Enrollment No.</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Contact No.</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Email id</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Permanent address</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>D.O.B.</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Blood Group</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Aadhaar No.</h5></div>
+                    <div class="col-md-9 text-secondary">name</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
