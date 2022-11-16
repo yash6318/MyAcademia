@@ -9,25 +9,39 @@
                 <th>Marks</th>
               </tr>
               <tr>
-                <td>English</td>
-                <td>...</td>
+                <td>{{ sub1 }}</td>
+                <td>{{ res.marksinsub1 }}</td>
               </tr>
               <tr>
-                <td>Hindi</td>
-                <td>...</td>
+                <td>{{ sub2 }}</td>
+                <td>{{ res.marksinsub2 }}</td>
               </tr>
               <tr>
-                <td>Maths</td>
-                <td>...</td>
+                <td>{{ sub3 }}</td>
+                <td>{{ res.marksinsub3 }}</td>
               </tr>
               <tr>
-                <td>Science</td>
-                <td>...</td>
+                <td>{{ sub4 }}</td>
+                <td>{{ res.marksinsub4 }}</td>
               </tr>
-              <tr>
-                <td>Computer</td>
-                <td>...</td>
-              </tr>
+              {% if sub5 %}
+                <tr>
+                  <td>{{ sub5 }}</td>
+                  <td>{{ res.marksinsub5 }}</td>
+                </tr>
+              {% endif %}
+              {% if sub6 %}
+                <tr>
+                  <td>{{ sub6 }}</td>
+                  <td>{{ res.marksinsub6 }}</td>
+                </tr>
+              {% endif %}
+              {% if sub7 %}
+                <tr>
+                  <td>{{ sub7 }}</td>
+                  <td>{{ res.marksinsub7 }}</td>
+                </tr>
+              {% endif %}
             </table>
           </div>
         

@@ -5,13 +5,15 @@
         <div class="container">
             <table class="table table-striped table-bordered table-hover table-condensed">
             <tr>
-                <th>Roll No.</th>
+                <th>Enroll No.</th>
                 <th>Name</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>...</td>
-            </tr>
+            {% for student in all_studs %}
+                <tr>
+                    <td>{{ student.enrollno }}</td>
+                    <td>{{ student.firstname }} {{ student.lastname}}</td>
+                </tr>
+            {% endfor %}
             </table>
         </div>
         

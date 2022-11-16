@@ -6,7 +6,7 @@
             <div class="row">
                 <table class="table table-striped table-bordered table-hover table-condensed col-md-10">
                 <tr>
-                    <th>Roll No.</th>
+                    <th>Enroll No.</th>
                     <th>Name</th>
                     <th>Apr</th>
                     <th>May</th>
@@ -21,150 +21,57 @@
                     <th>Feb</th>
                     <th>Mar</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
+                {% for student,stud_att in ziplist %}
+                    <tr>
+                        <td>{{student.enrollno}}</td>
+                        <td>{{student.firstname}} {{student.lastname}}</td>
+                        <td>{{stud_att.april}}</td>
+                        <td>{{stud_att.may}}</td>
+                        <td>{{stud_att.june}}</td>
+                        <td>{{stud_att.july}}</td>
+                        <td>{{stud_att.august}}</td>
+                        <td>{{stud_att.september}}</td>
+                        <td>{{stud_att.october}}</td>
+                        <td>{{stud_att.november}}</td>
+                        <td>{{stud_att.december}}</td>
+                        <td>{{stud_att.january}}</td>
+                        <td>{{stud_att.february}}</td>
+                        <td>{{stud_att.march}}</td>
+                    </tr>
+                {% endfor %}
                 </table>
 
-                <form class="col-md-2 teach-form">
+                <form class="col-md-2 teach-form" method="POST">
+                    {% csrf_token %}
                     <div class="form-group">
-                    <label>Roll No.</label>
-                    <input type="text" class="form-control">
+                    <label>Enroll No.</label>
+                    <input type="text" name="enrollno" id="enrollno" class="form-control">
                     </div>
         
                     <div class="form-group">
                     <label>Month</label>
-                    <select class="form-control">
-                        <option value="english">January</option>
-                        <option value="hindi">Feburary</option>
-                        <option value="maths">March</option>
-                        <option value="science">April</option>
-                        <option value="computer">May</option>
-                        <option value="computer">June</option>
-                        <option value="computer">July</option>
-                        <option value="computer">August</option>
-                        <option value="computer">September</option>
-                        <option value="computer">October</option>
-                        <option value="computer">November</option>
-                        <option value="computer">December</option>
+                    <select class="form-control" id="month" name="month">
+                        <option value="january">January</option>
+                        <option value="february">Feburary</option>
+                        <option value="march">March</option>
+                        <option value="april">April</option>
+                        <option value="may">May</option>
+                        <option value="june">June</option>
+                        <option value="july">July</option>
+                        <option value="august">August</option>
+                        <option value="september">September</option>
+                        <option value="october">October</option>
+                        <option value="november">November</option>
+                        <option value="december">December</option>
                     </select>
                     </div>
 
                     <div class="form-group">
                         <label>Attendance</label>
-                        <input type="email" class="form-control">
+                        <input type="number" id="attendance" name="attendance" class="form-control">
                     </div>
             
-                    <button type="submit" class="btn btn-default btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-default btn-primary mb-5">Submit</button>
                 </form>
             </div>
           </div>

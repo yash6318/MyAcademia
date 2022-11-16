@@ -6,9 +6,9 @@
     <div class="col-md-4 mt-1">
         <div class="card text-center sidebar">
             <div class="card-body">
-                <img src = "{% static 'MainApp/images/prof.png' %}" class="rounded-circle" width="150"> 
+                <img src = "{{ user.user_profiles.image.url }}" class="rounded-circle" width="150"> 
                 <div class="mt-3">
-                    <a href="">SUBJECTS</a>
+                    <a href="{% url 'stud_subj' %}">SUBJECTS</a>
                     <a href="{% url 'stud_att' %}">ATTENDANCE</a>
                     <a href="{% url 'stud_marks' %}">CHECK RESULTS</a>
                 </div>
@@ -21,39 +21,39 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3"><h5>Full Name</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><h5>Class</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{ Student_name }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><h5>Enrollment No.</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{ curr_stud.enrollno }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Class</h5></div>
+                    <div class="col-md-9 text-secondary">{{ curr_stud.class_field }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><h5>Contact No.</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"><h5>Email id</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{curr_stud_details.contactno }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><h5>Permanent address</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{curr_stud_details.address}}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><h5>D.O.B.</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{curr_stud_details.dob}}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><h5>Blood Group</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{curr_stud_details.bloodgrp}}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-3"><h5>Aadhaar No.</h5></div>
-                    <div class="col-md-9 text-secondary">name</div>
+                    <div class="col-md-9 text-secondary">{{curr_stud_details.aadhaarno}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><h5>Date of Enrollment</h5></div>
+                    <div class="col-md-9 text-secondary">{{curr_stud.dateofenrollment}}</div>
                 </div>
             </div>
         </div>

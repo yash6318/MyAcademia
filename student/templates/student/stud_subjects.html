@@ -1,0 +1,15 @@
+{% extends "MainApp/base.html" %}
+{% load static %}
+{% block content %}
+
+        <div class="row subjs">            
+            <div class="col-md-3 subj-card">{{sub1}}</div>
+            <div class="col-md-3 subj-card">{{sub2}}</div>
+            <div class="col-md-3 subj-card">{{sub3}}</div>
+            <div class="col-md-3 subj-card">{{sub4}}</div>
+            {% if sub5 %} <div class="col-md-3 subj-card">{{sub5}}</div> {% endif %}
+            {% if sub6 %} <div class="col-md-3 subj-card">{{sub6}}</div> {% endif %}
+            {% if sub7 %} <div class="col-md-3 subj-card">{{sub7}}</div> {% endif %}
+        </div>
+        
+{% endblock %}

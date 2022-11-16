@@ -1,0 +1,186 @@
+{% extends "MainApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div class="wrapper">
+        <div class="title">APPLICATION FORM</div>
+        <form class="form" method="post">
+            <div class="inputfield">
+                <label>First Name</label>
+                <input type="text" name="firstname" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label>Last Name</label>
+                <input type="text" name="lastname" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label>Class To Be Enrolled</label>
+                <input type="text" name="classtobeenrolled" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label>Last School Attended</label>
+                <input type="text" name="lastschoolattended" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Gender</label>
+                <div class="custom_select">
+                    <select name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>D.O.B.</label>
+                <input type="date" name="dob" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label>Blood Group</label>
+                <input type="text" name="bloodgrp" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Religion</label>
+                <input type="text" name="religion" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label>Caste</label>
+                <div class="custom_select">
+                    <select name="caste" required>
+                        <option value="">Select</option>
+                        <option value="gen">GEN</option>
+                        <option value="sc-st">SC/ST</option>
+                        <option value="obc">OBC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>Contact Number</label>
+                <input type="text" name="contactno" class="input" required>
+            </div>
+            <div class="inputfield">
+                <label>Aadhaar Number</label>
+                <input type="text" name="aadhaarno" class="input">
+            </div>
+            <!-- <div class="form-group">
+                <label>Upload image of Aadhaar Card</label>
+                <input type="file" name="imgAadhaar">
+            </div> -->
+            <div class="inputfield">
+                <label>Father's Name</label>
+                <input type="text" name="fathername" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Father's Occupation</label>
+                <div class="custom_select">
+                    <select name="fatherocc">
+                        <option value="">Select</option>
+                        <option value="pvt">Private Service</option>
+                        <option value="ind">Industrial Service</option>
+                        <option value="govt">Govt Service</option>
+                        <option value="self">Self Employed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>Father's Email</label>
+                <input type="text" name="fatheremail" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Father's Contact</label>
+                <input type="text" name="fathercontact" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Father's Aadhaar Number</label>
+                <input type="text" name="fatheraadhaar" class="input">
+            </div>
+            <!-- <div class="form-group">
+                <label>Upload image of Aadhaar Card</label>
+                <input type="file" name="imgfatherAaadhaar">
+            </div> -->
+            <div class="inputfield">
+                <label>Mother's Name</label>
+                <input type="text" name="mothername" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Mother's Occupation</label>
+                <div class="custom_select">
+                    <select name="motherocc">
+                        <option value="">Select</option>
+                        <option value="pvt">Private Service</option>
+                        <option value="ind">Industrial Service</option>
+                        <option value="govt">Govt Service</option>
+                        <option value="self">Self Employed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>Mother's Email</label>
+                <input type="text" name="motheremail" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Mother's Contact</label>
+                <input type="text" name="mothercontact" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Mother's Aadhaar Number</label>
+                <input type="text" name="motheraadhaar" class="input">
+            </div>
+            <!-- <div class="form-group">
+                <label>Upload image of Aadhaar Card</label>
+                <input type="file" name="imgmotherAadhaar">
+            </div> -->
+            <div class="inputfield">
+                <label>Guardian's Name</label>
+                <input type="text" name="guardianname" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Guardian's Occupation</label>
+                <div class="custom_select">
+                    <select name="guardianocc">
+                        <option value="">Select</option>
+                        <option value="pvt">Private Service</option>
+                        <option value="ind">Industrial Service</option>
+                        <option value="govt">Govt Service</option>
+                        <option value="self">Self Employed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputfield">
+                <label>Guardian's Email</label>
+                <input type="text" name="guardianemail" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Guardian's Contact</label>
+                <input type="text" name="guardiancontact" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Guardian's Aadhaar Number</label>
+                <input type="text" name="guardianaadhaar" class="input">
+            </div>
+            <!-- <div class="form-group">
+                <label>Upload image of Aadhaar Card</label>
+                <input type="file" name="imgguardianAadhaar">
+            </div> -->
+            <div class="inputfield">
+                <label>Family Income</label>
+                <input type="text" name="familyincome" class="input">
+            </div>
+            <div class="inputfield">
+                <label>Address</label>
+                <textarea class="textarea" name="address" required></textarea>
+            </div>
+            <div class="inputfield terms">
+                <label class="check">
+                    <input type="checkbox" name="agreed" required>
+                    <span class="checkmark"></span>
+                </label>
+                <p>Agreed to <a href="{% url 'terms' %}"> terms and conditions</a></p>
+            </div>
+            <div class="inputfield">
+                <input type="submit" value="SUBMIT" class="btn">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

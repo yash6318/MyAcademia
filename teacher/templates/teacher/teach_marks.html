@@ -6,102 +6,57 @@
             <div class="row">
                 <table class="table table-striped table-bordered table-hover table-condensed col-md-9">
                 <tr>
-                    <th>Roll No.</th>
+                    <th>Enroll No.</th>
                     <th>Name</th>
-                    <th>English</th>
-                    <th>Hindi</th>
-                    <th>Maths</th>
-                    <th>Science</th>
-                    <th>Computer</th>
+                    <th>{{sub1}}</th>
+                    <th>{{sub2}}</th>
+                    <th>{{sub3}}</th>
+                    <th>{{sub4}}</th>
+                    {% if sub5 %} <th>{{sub5}}</th> {% endif %}
+                    {% if sub6 %} <th>{{sub6}}</th> {% endif %}
+                    {% if sub7 %} <th>{{sub7}}</th> {% endif %}
                 </tr>
+                {% for student,marks in ziplist %}
                 <tr>
-                    <td>1</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
+                    <td>{{ student.enrollno}}</td>
+                    <td>{{ student.firstname}} {{student.lastname}}</td>
+                    <td>{{marks.marksinsub1}}</td>
+                    <td>{{marks.marksinsub2}}</td>
+                    <td>{{marks.marksinsub3}}</td>
+                    <td>{{marks.marksinsub4}}</td>
+                    {% if sub5 %}<td>{{marks.marksinsub5}}</td>{% endif %}
+                    {% if sub6 %}<td>{{marks.marksinsub6}}</td>{% endif %}
+                    {% if sub7 %}<td>{{marks.marksinsub7}}</td>{% endif %}
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                    <td>...</td>
-                </tr>
+                {% endfor %}
                 </table>
 
-                <form class="col-md-3 teach-form">
+                <form class="col-md-3 teach-form" method="post">
+                    {% csrf_token %}
                     <div class="form-group">
-                    <label>Roll No.</label>
-                    <input type="text" class="form-control">
+                    <label>Enroll No.</label>
+                    <input type="text" name="enrollno" class="form-control">
                     </div>
         
                     <div class="form-group">
                     <label>Subject</label>
-                    <select class="form-control">
-                        <option value="english">English</option>
-                        <option value="hindi">Hindi</option>
-                        <option value="maths">Maths</option>
-                        <option value="science">Science</option>
-                        <option value="computer">Computer</option>
+                    <select class="form-control" name="sub">
+                        <option value="sub1">{{sub1}}</option>
+                        <option value="sub2">{{sub2}}</option>
+                        <option value="sub3">{{sub3}}</option>
+                        <option value="sub4">{{sub4}}</option>
+                        {% if sub5 %}<option value="sub5">{{sub5}}</option> {% endif %}
+                        {% if sub6 %}<option value="sub6">{{sub6}}</option> {% endif %}
+                        {% if sub7 %}<option value="sub7">{{sub7}}</option> {% endif %}
                     </select>
                     </div>
 
                     <div class="form-group">
                         <label>Marks</label>
-                        <input type="email" class="form-control" placeholder="Add marks">
+                        <input type="number" name="new_marks" class="form-control" placeholder="Add marks">
                     </div>
             
-                    <button type="submit" class="btn btn-default btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-default btn-primary mb-5">Submit</button>
                 </form>
             </div>
           </div>

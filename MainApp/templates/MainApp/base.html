@@ -49,7 +49,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
 
             <!-- Logo -->
-            <a class="navbar-brand logo-image" href="{% url 'MyAcad-home' %}"><img src="{% static 'MainApp/images/logo.jpg' %}"></a><h3>MY ACADEMIA</h3>
+            <a class="navbar-brand logo-image" href="{% url 'MyAcad-home' %}"><img src="{% static 'MainApp/images/logo.jpg' %}"></a>
+            <a class="navbar-brand logo" href="{% url 'MyAcad-home' %}" style="text-decoration: none;"><h3>MY ACADEMIA</h3></a>
             
             <!-- Mobile Menu Toggle Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,16 +79,18 @@
                         <a class="nav-link page-scroll" href="{% url 'MyAcad-home' %}">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#">ABOUT US</a>
+                        <a class="nav-link page-scroll" href="#about">ABOUT US</a>
                     </li>
 
                     <!-- Dropdown Menu -->          
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle page-scroll" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ADMISSIONS</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#"><span class="item-text">PROSPECTUS</span></a>
+                            <a class="dropdown-item" href="{% url 'prospectus' %}"><span class="item-text">PROSPECTUS</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#"><span class="item-text">POLICY</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'application' %}"><span class="item-text">APPLICATION FORM</span></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
