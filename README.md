@@ -4,4 +4,4 @@ This is a School Database Management Website. This app is made to mordernize and
 
 # Tech Stack
 
-The app is made on Django REST Framework with MySQL integration.
+The app is made on Django a Python (high-level Python web Framework) with MySQL integration.
