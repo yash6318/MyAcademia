@@ -1,15 +1,109 @@
 {% extends "MainApp/base.html" %}
 {% load static %}
+
 {% block content %}
 
-        <div class="row subjs">            
-            <div class="col-md-3 subj-card">{{sub1}}</div>
-            <div class="col-md-3 subj-card">{{sub2}}</div>
-            <div class="col-md-3 subj-card">{{sub3}}</div>
-            <div class="col-md-3 subj-card">{{sub4}}</div>
-            {% if sub5 %} <div class="col-md-3 subj-card">{{sub5}}</div> {% endif %}
-            {% if sub6 %} <div class="col-md-3 subj-card">{{sub6}}</div> {% endif %}
-            {% if sub7 %} <div class="col-md-3 subj-card">{{sub7}}</div> {% endif %}
+<style>
+    /* Inline CSS for the Back link styling */
+    .back-link {
+        color: #6b6b6b; /* Color for the link */
+        font-weight: 500;
+        text-decoration: none; /* No underline by default */
+        font-size: 0.875rem; /* Smaller font size */
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 2rem; /* Margin for spacing */
+        transition: color 0.3s ease; /* Smooth color transition */
+    }
+  
+    .back-link:hover {
+        color: #1b1b1b; /* Darker color on hover */
+        text-decoration: none; /* No underline on hover */
+    }
+  
+    .back-link span:first-child {
+        font-size: 1.2rem; /* Adjusts arrow size */
+        font-weight: bold;
+        margin-right: 0.5rem; /* Space between icon and text */
+        margin-bottom: 0.2rem;
+    }
+
+    /* Style for the image */
+    .image-container {
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+        margin-bottom: 2rem; /* Margin below the image */
+    }
+
+    .image-container img {
+        max-width: 70%; /* Maximum width for the image */
+        height: auto; /* Maintain aspect ratio */
+    }
+    /* Center align text in the table */
+  table th, table td {
+      text-align: center; /* Center align both headers and data cells */
+  }
+</style>
+
+<div class="container">
+    <div class="row">
+        <!-- Image container -->
+        <div class="col-md-3 d-flex align-items-center">
+            <img src="{{ MEDIA_URL }}text-books.png" alt="Subjects Image" class="img-fluid" style="max-width: 70%; height: auto;">
+        </div>
+        <div class="col-md-9">
+            <!-- Subject Table -->
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ sub1 }}</td>
+                        <td>{{ sub1_info }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sub2 }}</td>
+                        <td>{{ sub2_info }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sub3 }}</td>
+                        <td>{{ sub3_info }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ sub4 }}</td>
+                        <td>{{ sub4_info }}</td>
+                    </tr>
+                    {% if sub5 %}
+                        <tr>
+                            <td>{{ sub5 }}</td>
+                            <td>{{ sub5_info }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if sub6 %}
+                        <tr>
+                            <td>{{ sub6 }}</td>
+                            <td>{{ sub6_info }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if sub7 %}
+                        <tr>
+                            <td>{{ sub7 }}</td>
+                            <td>{{ sub7_info }}</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <a href="{% url 'stud-home' %}" class="back-link">
+                <span>←</span>
+                <span>Back</span>
+            </a>
         </div>
         
+    </div>
+</div>
+
 {% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Students
+from MainApp.models import Students
 
 # Register your models here.
 class StudentAdmin(admin.ModelAdmin):

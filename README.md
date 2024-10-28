@@ -1,12 +1,24 @@
 # MyAcademia
 
-MyAcademia is a School Database Management web application. This app is developed to mordernize and digitialize the schooling system. It provides an interface to carry out various school activities like assigning or updating marks, attendance, to name a few.
+## Overview
+MyAcademia is a comprehensive School Database Management System designed to modernize and digitize the schooling experience. This web application aims to streamline various school management tasks, making it easier for teachers, students, and administrators to manage academic records, attendance, and more.
 
-# Tech Stack
+## Features
+- **User Authentication**: Secure login for teachers and administrators.
+- **Class Management**: Assign and manage classes for teachers and students.
+- **Attendance Tracking**: Efficient attendance management for each student by month.
+- **Grade Management**: Record and manage student grades across multiple subjects.
+- **Dynamic User Roles**: Different functionalities based on user roles (teachers, students, admins).
+- **Responsive Design**: Mobile-friendly interface for accessibility on various devices.
 
-The app is made on Django (high-level Python web Framework) with MySQL integration.
+## Tech Stack
+- **Backend**: Django (high-level Python web framework)
+- **Database**: MySQL (for data storage)
+- **Frontend**: HTML, CSS, JavaScript (for a responsive user interface)
+- **Additional Libraries**: Bootstrap (for styling)
 
 ## Contributors
-Yashwini Bansal - 21075096
 
 Yash Agrawal - 21075093
+Yashwini Bansal - 21075096
+
