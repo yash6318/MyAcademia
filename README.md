@@ -17,3 +17,8 @@ MyAcademia is a comprehensive School Database Management System designed to mode
 - **Frontend**: HTML, CSS, JavaScript (for a responsive user interface)
 - **Additional Libraries**: Bootstrap (for styling)
 
+## Contributors
+
+Yash Agrawal - 21075093
+Yashwini Bansal - 21075096
+
