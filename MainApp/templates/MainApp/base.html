@@ -9,7 +9,7 @@
         <!-- SEO Meta Tags -->
         <meta name="description" content="My Academia">
         <meta name="keywords" content="school website, responsive">
-        <meta name="author" content="Yashwini Bansal">
+        <meta name="author" content="Yash Agrawal">
     
         <!-- Website Title -->
         <title>My Academia</title>
@@ -61,27 +61,13 @@
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
-                    {% if user.is_authenticated %}
-                        {% if request.user|has_group:"Student" %}
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="{% url 'stud-home' %}">MY PROFILE</a>
-                        </li>
-                        {% elif request.user|has_group:"Teacher" %}
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="{% url 'teacher-home' %}">MY PROFILE</a>
-                        </li>
-                        {% endif %}
-                        <li class="nav-item">
-                            <a class="nav-link page-scroll" href="{% url 'logout' %}">LOGOUT</a>
-                        </li>
-                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="{% url 'MyAcad-home' %}">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#about">ABOUT US</a>
                     </li>
-
+                    
                     <!-- Dropdown Menu -->          
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle page-scroll" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">ADMISSIONS</a>
@@ -121,6 +107,25 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#contact">CONTACT US</a>
                     </li>
+                    {% if user.is_authenticated %}
+                        {% if request.user|has_group:"Student" %}
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="{% url 'stud-home' %}">MY PROFILE</a>
+                        </li>
+                        {% elif request.user|has_group:"Teacher" %}
+                        <li class="nav-item">
+                            <a class="nav-link page-scroll" href="{% url 'teacher-home' %}">MY PROFILE</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link btn btn-link page-scroll" style="text-decoration: none; padding: 0; border: none; background: none;font-size: 14px;font-weight: 600;">
+                                    LOGOUT
+                                </button>
+                            </form>
+                        </li>
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="{% url 'login_view' %}">LOGIN</a>
                     </li>
@@ -186,7 +191,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <p class="p-small">Copyright © 2021 - All rights reserved</p>
+                        <p class="p-small">Made by Yash Agrawal (21075093) and Yashwini Bansal(21075096)</p>
                     </div> <!-- end of col -->
                 </div> <!-- enf of row -->
             </div> <!-- end of container -->

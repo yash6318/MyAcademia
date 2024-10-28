@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from .models import Applicants
+from MainApp.models import Applicants
 
 # Create your views here.
 def home(request):
@@ -32,74 +32,70 @@ def my_login_view(request):
 
 def application_view(request):
     if request.method == 'POST':
-        firstname = request.POST.firstname
-        lastname = request.POST.lastname
-        classtobeenrolled = request.POST.classtobeenrolled
-        email = request.POST.email
-        lastschoolattended = request.POST.lastschoolattended
-        gender = request.POST.gender
-        dob = request.POST.dob
-        bloodgrp = request.POST.bloodgrp
-        religion = request.POST.religion
-        caste = request.POST.caste
-        contactno = request.POST.contactno
-        aadhaarno = request.POST.aadhaarno
-        fathername = request.POST.fathername
-        fatherocc = request.POST.fatherocc
-        fatheremail = request.POST.fatheremail
-        fathercontact = request.POST.fathercontact
-        fatheraadhaarno = request.POST.fatheraadhaar
-        mothername = request.POST.mothername
-        motherocc = request.POST.motherocc
-        motheremail = request.POST.motheremail
-        mothercontact = request.POST.mothercontact
-        motheraadhaarno = request.POST.motheraadhaar
-        guardianname = request.POST.guardianname
-        guardianemail = request.POST.guardianemail
-        guardianocc = request.POST.guardianocc
-        guardiancontact = request.POST.guardiancontact
-        guardianaadhaar = request.POST.guardianaadhaar
-        familyincome = request.POST.familyincome
-        address = request.POST.address
+        firstname = request.POST.get('firstname')
+        lastname = request.POST.get('lastname')
+        classtobeenrolled = request.POST.get('classtobeenrolled')
+        lastschoolattended = request.POST.get('lastschoolattended')
+        gender = request.POST.get('gender')
+        dob = request.POST.get('dob')
+        address = request.POST.get('address')
+        bloodgrp = request.POST.get('bloodgrp')
+        aadhaarno = request.POST.get('aadhaarno')
+        contactno = request.POST.get('contactno')
+        father_s_name = request.POST.get('fathername')
+        father_s_occupation = request.POST.get('fatherocc')
+        father_s_aadhaarno = request.POST.get('fatheraadhaar') or None  # Set to None if empty
+        father_s_email = request.POST.get('fatheremail') or None  # Set to None if empty
+        father_s_contactno = request.POST.get('fathercontact') or None  # Set to None if empty
+        mother_s_name = request.POST.get('mothername')
+        mother_s_occupation = request.POST.get('motherocc')
+        mother_s_aadhaarno = request.POST.get('motheraadhaar') or None  # Set to None if empty
+        mother_s_email = request.POST.get('motheremail') or None  # Set to None if empty
+        mother_s_contactno = request.POST.get('mothercontact') or None  # Set to None if empty
+        guardian_s_name = request.POST.get('guardianname')
+        guardian_s_occupation = request.POST.get('guardianocc')
+        guardian_s_aadhaarno = request.POST.get('guardianaadhaar') or None  # Set to None if empty
+        guardian_s_email = request.POST.get('guardianemail') or None  # Set to None if empty
+        guardian_s_contactno = request.POST.get('guardiancontact') or None  # Set to None if empty
+        familyincome = request.POST.get('familyincome') or None  # Set to None if empty
+        caste = request.POST.get('caste') or None  # Set to None if empty
+        religion = request.POST.get('religion') or None  # Set to None if empty
 
         applicant = Applicants(
             firstname=firstname,
             lastname=lastname,
             classtobeenrolled=classtobeenrolled,
-            email=email,
             lastschoolattended=lastschoolattended,
             gender=gender,
             dob=dob,
-            bloodgrp=bloodgrp,
-            religion=religion,
-            caste=caste,
-            contactno=contactno,
-            aadhaarno=aadhaarno,
-            father_s_name=fathername,
-            father_s_occ=fatherocc,
-            father_s_email=fatheremail,
-            father_s_contact=fathercontact,
-            father_s_aadhaarno=fatheraadhaarno,
-            mother_s_name=mothername,
-            mother_s_occ=motherocc,
-            mother_s_email=motheremail,
-            mother_s_contact=mothercontact,
-            mother_s_aadhaarno=motheraadhaarno,
-            guardian_s_name=guardianname,
-            guardian_s_email=guardianemail,
-            guardian_s_occ=guardianocc,
-            guardian_s_contact=guardiancontact,
-            guardian_s_aadhaar=guardianaadhaar,
-            familyincome=familyincome,
             address=address,
+            bloodgrp=bloodgrp,
+            aadhaarno=aadhaarno,
+            contactno=contactno,
+            father_s_name=father_s_name,
+            father_s_occupation=father_s_occupation,
+            father_s_aadhaarno=father_s_aadhaarno,
+            father_s_email=father_s_email,
+            father_s_contactno=father_s_contactno,
+            mother_s_name=mother_s_name,
+            mother_s_occupation=mother_s_occupation,
+            mother_s_aadhaarno=mother_s_aadhaarno,
+            mother_s_email=mother_s_email,
+            mother_s_contactno=mother_s_contactno,
+            guardian_s_name=guardian_s_name,
+            guardian_s_occupation=guardian_s_occupation,
+            guardian_s_aadhaarno=guardian_s_aadhaarno,
+            guardian_s_email=guardian_s_email,
+            guardian_s_contactno=guardian_s_contactno,
+            familyincome=familyincome,
+            caste=caste,
+            religion=religion,
         )
 
         applicant.save()
-        
-        
-
 
     return render(request, 'MainApp/application.html')
+
 
 def prospectus(request):
     return render(request, 'MainApp/prospectus.html')

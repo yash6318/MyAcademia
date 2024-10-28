@@ -1,58 +1,119 @@
 {% extends "MainApp/base.html" %}
 {% load static %}
+
 {% block content %}
 
-        <div class="container">
+<style>
+  /* Inline CSS for the Back link styling */
+  .back-link {
+      color: #6b6b6b; /* Bootstrap primary color */
+      font-weight: 500;
+      text-decoration: none; /* Underlined text */
+      font-size: 0.875rem; /* Smaller font size */
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 2rem; /* Margin for spacing */
+      transition: color 0.3s ease; /* Smooth color transition */
+  }
+
+  .back-link:hover {
+      color: #1b1b1b; /* Darker color on hover */
+      text-decoration: none; /* Keep underline on hover */
+  }
+
+  .back-link span:first-child {
+      font-size: 1.2rem; /* Adjusts arrow size */
+      font-weight: bold;
+      margin-right: 0.5rem; /* Space between icon and text */
+      margin-bottom: 0.2rem;
+  }
+  /* Center align text in the table */
+  table th, table td {
+      text-align: center; /* Center align both headers and data cells */
+  }
+</style>
+
+<div class="container">
+    <div class="row">
+        <!-- Image column (left side) -->
+        <div class="col-md-3 d-flex align-items-center">
+            <img src="{{ MEDIA_URL }}roll-call.png" alt="Attendance Image" class="img-fluid" style="max-width: 90%; height: auto;">
+        </div>
+
+        <!-- Table column (right side) -->
+        <div class="col-md-9">
             <table class="table table-striped table-bordered table-hover table-condensed">
-              <tr>
-                <th>Months</th>
-                <th>Attendance</th>
-              </tr>
-              <tr>
-                <td>April</td>
-                <td>{{att.april}}</td>
-              </tr>
-              <tr>
-                <td>May</td>
-                <td>{{att.may}}</td>
-              </tr>
-              <tr>
-                <td>June</td>
-                <td>{{att.june}}</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>{{att.july}}</td>
-              </tr>
-              <tr>
-                <td>August</td>
-                <td>{{att.august}}</td>
-              </tr>
-              <tr>
-                <td>September</td>
-                <td>{{att.september}}</td>
-              </tr>
-              <tr>
-                <td>October</td>
-                <td>{{att.october}}</td>
-              </tr>
-              <tr>
-                <td>November</td>
-                <td>{{att.november}}</td>
-              </tr>
-              <tr>
-                <td>December</td>
-                <td>{{att.december}}</td>
-              </tr>
-              <tr>
-                <td>January</td>
-                <td>{{att.january}}</td>
-              </tr>
-              <tr>
-                <td>Feburary</td>
-                <td>{{att.february}}</td>
-              </tr>
+                <thead>
+                    <tr>
+                        <th>Months</th>
+                        <th>Attendance</th>
+                        <th>Total Working Days</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>April</td>
+                        <td>{{ att.april }}</td>
+                        <td>28</td>  
+                    </tr>
+                    <tr>
+                        <td>May</td>
+                        <td>{{ att.may }}</td>
+                        <td>22</td>  
+                    </tr>
+                    <tr>
+                        <td>June</td>
+                        <td>{{ att.june }}</td>
+                        <td>21</td>  
+                    </tr>
+                    <tr>
+                        <td>July</td>
+                        <td>{{ att.july }}</td>
+                        <td>23</td>  
+                    </tr>
+                    <tr>
+                        <td>August</td>
+                        <td>{{ att.august }}</td>
+                        <td>22</td>  
+                    </tr>
+                    <tr>
+                        <td>September</td>
+                        <td>{{ att.september }}</td>
+                        <td>21</td>  
+                    </tr>
+                    <tr>
+                        <td>October</td>
+                        <td>{{ att.october }}</td>
+                        <td>22</td>  
+                    </tr>
+                    <tr>
+                        <td>November</td>
+                        <td>{{ att.november }}</td>
+                        <td>21</td>  
+                    </tr>
+                    <tr>
+                        <td>December</td>
+                        <td>{{ att.december }}</td>
+                        <td>20</td>  
+                    </tr>
+                    <tr>
+                        <td>January</td>
+                        <td>{{ att.january }}</td>
+                        <td>22</td>  
+                    </tr>
+                    <tr>
+                        <td>February</td>
+                        <td>{{ att.february }}</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
             </table>
-          </div>
-        
+            <a href="{% url 'stud-home' %}" class="back-link">
+              <span>←</span>
+              <span>Back</span>
+          </a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
